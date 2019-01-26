@@ -11,8 +11,8 @@ config :logger, level: :warn
 
 # Configure your database
 config :personal_site, PersonalSite.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: System.get_env("DATABASE_POSTGRESQL_USERNAME") || "postgres",
+  password: System.get_env("DATABASE_POSTGRESQL_PASSWORD") || "postgres",
   database: "personal_site_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox

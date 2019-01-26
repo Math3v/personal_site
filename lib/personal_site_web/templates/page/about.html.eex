@@ -1,0 +1,11 @@
+<section class="phx-hero">
+  <h1>About Me</h1>
+</section>
+<section>
+  <img src="<%= Routes.static_path(@conn, "/images/wordcloud.svg") %>" alt="WordCloud"/>
+</section>
+<section>
+  <p>
+    This is a paragraph about me.
+  </p>
+</section>

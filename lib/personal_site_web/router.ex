@@ -18,6 +18,8 @@ defmodule PersonalSiteWeb.Router do
 
     get "/", PageController, :index
     get "/about", PageController, :about
+
+    resources "/posts", PostController
   end
 
   # Other scopes may use custom stacks.

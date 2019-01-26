@@ -9,3 +9,68 @@
     This is a paragraph about me.
   </p>
 </section>
+
+<%# 
+Generated with: https://www.jasondavies.com/wordcloud/
+Input:
+javascript javascript javascript javascript javascript javascript javascript javascript javascript javascript javascript javascript javascript javascript javascript
+ruby ruby ruby ruby ruby ruby ruby ruby ruby ruby ruby ruby
+rails rails rails rails rails rails rails rails rails
+elixir elixir elixir elixir elixir
+phoenix phoenix phoenix phoenix phoenix
+react react react react react react react
+angular angular angular
+html html html html html html html html html html
+css css css css css css css css css css
+graphql graphql graphql graphql graphql 
+aws
+s3
+sidekiq
+webpack
+honeybadger
+sentry
+github
+jira
+mailchimp
+esnext
+ai
+sql
+trailblazer
+functional programming
+tdd
+railway oriented programming
+rspec
+jest
+jasmine
+vim
+styled components
+redux
+storybook
+design
+algorithms
+research
+angular.js
+vue.js
+ember.js
+animations
+graphs
+diagrams
+interactors
+IIFE
+promises
+async/await
+node.js
+express.js
+mongodb
+vscode
+mongoose
+heroku
+jenkins
+trello
+processes
+a/b tests
+performance
+ux
+ui
+ %>
+ 

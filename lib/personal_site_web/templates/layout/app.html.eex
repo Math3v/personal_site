@@ -15,6 +15,7 @@
             <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
             <li><a href="<%= Routes.page_path(@conn, :about) %>">About</a></li>
             <li><a href="<%= Routes.post_path(@conn, :index) %>">Blog</a></li>
+            <li><a href="<%= Routes.session_path(@conn, :logout) %>">Logout</a></li>
           </ul>
         </nav>
         <a href="http://phoenixframework.org/" class="phx-logo">

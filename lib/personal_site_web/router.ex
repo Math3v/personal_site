@@ -22,6 +22,11 @@ defmodule PersonalSiteWeb.Router do
   end
 
   scope "/", PersonalSiteWeb do
+    pipe_through [:browser, :auth, :ensure_auth]
+    resources "/posts", PostController, except: [:index, :show]
+  end
+
+  scope "/", PersonalSiteWeb do
     pipe_through :browser
 
     get "/", PageController, :index
@@ -32,11 +37,6 @@ defmodule PersonalSiteWeb.Router do
     get "/logout", SessionController, :logout
 
     resources "/posts", PostController, only: [:index, :show]
-  end
-
-  scope "/", PersonalSiteWeb do
-    pipe_through [:browser, :auth, :ensure_auth]
-    resources "/posts", PostController, except: [:index, :show]
   end
 
   # Other scopes may use custom stacks.

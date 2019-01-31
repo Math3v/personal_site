@@ -1,5 +1,7 @@
 defmodule PersonalSiteWeb.PostControllerTest do
   use PersonalSiteWeb.ConnCase
+  import PersonalSite.Accounts.Guardian
+  import PersonalSite.Factory
 
   alias PersonalSite.Blog
 
@@ -17,6 +19,13 @@ defmodule PersonalSiteWeb.PostControllerTest do
     post
   end
 
+  def login_admin(%{conn: conn} = arg) do
+    admin = insert(:admin)
+    {:ok, token, _} = encode_and_sign(admin, %{}, token_type: :access)
+    conn = put_req_header(conn, "authorization", "bearer: " <> token)
+    %{conn: conn}
+  end
+
   describe "index" do
     test "lists all posts", %{conn: conn} do
       conn = get(conn, Routes.post_path(conn, :index))
@@ -25,6 +34,8 @@ defmodule PersonalSiteWeb.PostControllerTest do
   end
 
   describe "new post" do
+    setup [:login_admin]
+
     test "renders form", %{conn: conn} do
       conn = get(conn, Routes.post_path(conn, :new))
       assert html_response(conn, 200) =~ "New Post"
@@ -32,6 +43,8 @@ defmodule PersonalSiteWeb.PostControllerTest do
   end
 
   describe "create post" do
+    setup [:login_admin]
+
     test "redirects to show when data is valid", %{conn: conn} do
       conn = post(conn, Routes.post_path(conn, :create), post: @create_attrs)
 
@@ -49,7 +62,7 @@ defmodule PersonalSiteWeb.PostControllerTest do
   end
 
   describe "edit post" do
-    setup [:create_post]
+    setup [:create_post, :login_admin]
 
     test "renders form for editing chosen post", %{conn: conn, post: post} do
       conn = get(conn, Routes.post_path(conn, :edit, post))
@@ -58,7 +71,7 @@ defmodule PersonalSiteWeb.PostControllerTest do
   end
 
   describe "update post" do
-    setup [:create_post]
+    setup [:create_post, :login_admin]
 
     test "redirects when data is valid", %{conn: conn, post: post} do
       conn = put(conn, Routes.post_path(conn, :update, post), post: @update_attrs)
@@ -75,7 +88,7 @@ defmodule PersonalSiteWeb.PostControllerTest do
   end
 
   describe "delete post" do
-    setup [:create_post]
+    setup [:create_post, :login_admin]
 
     test "deletes chosen post", %{conn: conn, post: post} do
       conn = delete(conn, Routes.post_path(conn, :delete, post))

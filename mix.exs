@@ -46,7 +46,8 @@ defmodule PersonalSite.MixProject do
       {:wallaby, "~> 0.20.0", [runtime: false, only: :test]},
       {:guardian, "~> 1.0"},
       {:comeonin, "~> 4.0"},
-      {:bcrypt_elixir, "~> 0.12"}
+      {:bcrypt_elixir, "~> 0.12"},
+      {:ex_machina, "~> 2.2", only: :test}
     ]
   end
 

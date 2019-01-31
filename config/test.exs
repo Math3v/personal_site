@@ -16,3 +16,5 @@ config :personal_site, PersonalSite.Repo,
   database: "personal_site_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+config :bcrypt_elixir, :log_rounds, 4

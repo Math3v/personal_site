@@ -2,9 +2,16 @@ defmodule PersonalSite.Posts.CreateTest do
   use PersonalSite.IntegrationCase
 
   import Wallaby.Query, only: [css: 2, text_field: 1, button: 1, link: 1, select: 1]
+  import PersonalSite.Factory
 
   test "creates post and navigates to index", %{session: session} do
+    insert(:admin)
+
     session
+    |> visit("/login")
+    |> fill_in(text_field("Username"), with: "admin")
+    |> fill_in(text_field("Password"), with: "admin")
+    |> click(button("Submit"))
     |> visit("/posts/new")
     |> fill_in(text_field("Title"), with: "New Post")
     |> fill_in(text_field("Body"), with: "New Content")

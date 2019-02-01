@@ -14,9 +14,6 @@ defmodule PersonalSite.Posts.CreateTest do
     |> click(button("Submit"))
     |> visit("/posts/new")
     |> fill_in(text_field("Title"), with: "New Post")
-    # |> execute_script(
-    #   "var element = document.querySelector('trix-editor');element.editor.insertString('New Content');"
-    # )
     |> execute_script("document.getElementById('post_body').value = 'New Content';")
     |> set_value(select("Tags"), "option1")
     |> fill_in(text_field("Slug"), with: "new-post")

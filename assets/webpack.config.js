@@ -13,10 +13,12 @@ module.exports = (env, options) => ({
     ]
   },
   entry: {
-      './js/app.js': ['./js/app.js'].concat(glob.sync('./vendor/**/*.js'))
+    app: ['./js/app.js'].concat(glob.sync('./vendor/**/*.js')),
+    trix: ['./node_modules/trix/dist/trix.js'],
+    trix_css: ['./js/trix_css.js'],
   },
   output: {
-    filename: 'app.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, '../priv/static/js')
   },
   module: {
@@ -35,7 +37,7 @@ module.exports = (env, options) => ({
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin({ filename: '../css/app.css' }),
+    new MiniCssExtractPlugin({ filename: '../css/[name].css' }),
     new CopyWebpackPlugin([{ from: 'static/', to: '../' }])
   ]
 });

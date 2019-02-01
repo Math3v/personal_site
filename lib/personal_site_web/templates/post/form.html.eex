@@ -9,19 +9,22 @@
   <%= text_input f, :title %>
   <%= error_tag f, :title %>
 
-  <%= label f, :body %>
-  <%= textarea f, :body %>
-  <%= error_tag f, :body %>
+  <%= label f, :slug %>
+  <%= text_input f, :slug %>
+  <%= error_tag f, :slug %>
 
   <%= label f, :tags %>
   <%= multiple_select f, :tags, ["Option 1": "option1", "Option 2": "option2"] %>
   <%= error_tag f, :tags %>
 
-  <%= label f, :slug %>
-  <%= text_input f, :slug %>
-  <%= error_tag f, :slug %>
+  <%= label f, :body %>
+  <input id="post_body" type="hidden" name="post[body]" value="<%= f.data.body %>">
+  <trix-editor input="post_body"></trix-editor>
+  <%= error_tag f, :body %>
 
   <div>
     <%= submit "Save" %>
   </div>
 <% end %>
+
+<script src="/js/trix.js"></script>

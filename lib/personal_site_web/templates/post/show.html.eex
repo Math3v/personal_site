@@ -9,7 +9,7 @@
 
   <li>
     <strong>Body:</strong>
-    <%= @post.body %>
+    <%= raw @post.body %>
   </li>
 
   <li>

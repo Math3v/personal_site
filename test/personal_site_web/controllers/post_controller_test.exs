@@ -19,7 +19,7 @@ defmodule PersonalSiteWeb.PostControllerTest do
     post
   end
 
-  def login_admin(%{conn: conn} = arg) do
+  def login_admin(%{conn: conn}) do
     admin = insert(:admin)
     {:ok, token, _} = encode_and_sign(admin, %{}, token_type: :access)
     conn = put_req_header(conn, "authorization", "bearer: " <> token)

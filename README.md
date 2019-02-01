@@ -1,5 +1,7 @@
 # PersonalSite
 
+[![Build Status](https://semaphoreci.com/api/v1/math3v/personal_site/branches/add-trixjs/badge.svg)](https://semaphoreci.com/math3v/personal_site)
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
@@ -12,7 +14,7 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 ## Tasks
 
   * Design
-  * Trix.js
+  * Tags as comma-strings
   * Analytics
   * Image Uploads
   * Code Formatting

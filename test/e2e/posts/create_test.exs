@@ -14,7 +14,7 @@ defmodule PersonalSite.Posts.CreateTest do
     |> click(button("Submit"))
     |> visit("/posts/new")
     |> fill_in(text_field("Title"), with: "New Post")
-    |> fill_in(text_field("Body"), with: "New Content")
+    |> execute_script("document.getElementById('post_body').value = 'New Content';")
     |> set_value(select("Tags"), "option1")
     |> fill_in(text_field("Slug"), with: "new-post")
     |> click(button("Save"))

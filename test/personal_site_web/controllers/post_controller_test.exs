@@ -5,14 +5,14 @@ defmodule PersonalSiteWeb.PostControllerTest do
 
   alias PersonalSite.Blog
 
-  @create_attrs %{body: "some body", slug: "some slug", tags: [], title: "some title"}
+  @create_attrs %{body: "some body", slug: "some slug", tags_input: "react", title: "some title"}
   @update_attrs %{
     body: "some updated body",
     slug: "some updated slug",
-    tags: [],
+    tags_input: "elixir",
     title: "some updated title"
   }
-  @invalid_attrs %{body: nil, slug: nil, tags: nil, title: nil}
+  @invalid_attrs %{body: nil, slug: nil, tags_input: nil, title: nil}
 
   def fixture(:post) do
     {:ok, post} = Blog.create_post(@create_attrs)

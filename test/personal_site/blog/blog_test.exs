@@ -6,14 +6,14 @@ defmodule PersonalSite.BlogTest do
   describe "posts" do
     alias PersonalSite.Blog.Post
 
-    @valid_attrs %{body: "some body", slug: "some slug", tags: [], title: "some title"}
+    @valid_attrs %{body: "some body", slug: "some slug", tags_input: "react", title: "some title"}
     @update_attrs %{
       body: "some updated body",
       slug: "some updated slug",
-      tags: [],
+      tags_input: "elixir",
       title: "some updated title"
     }
-    @invalid_attrs %{body: nil, slug: nil, tags: nil, title: nil}
+    @invalid_attrs %{body: nil, slug: nil, tags_input: nil, title: nil}
 
     def post_fixture(attrs \\ %{}) do
       {:ok, post} =
@@ -26,19 +26,19 @@ defmodule PersonalSite.BlogTest do
 
     test "list_posts/0 returns all posts" do
       post = post_fixture()
-      assert Blog.list_posts() == [post]
+      assert Blog.list_posts() == [%{post | tags_input: nil}]
     end
 
     test "get_post!/1 returns the post with given id" do
       post = post_fixture()
-      assert Blog.get_post!(post.id) == post
+      assert Blog.get_post!(post.id) == %{post | tags_input: nil}
     end
 
     test "create_post/1 with valid data creates a post" do
       assert {:ok, %Post{} = post} = Blog.create_post(@valid_attrs)
       assert post.body == "some body"
       assert post.slug == "some slug"
-      assert post.tags == []
+      assert post.tags == ["react"]
       assert post.title == "some title"
     end
 
@@ -51,14 +51,14 @@ defmodule PersonalSite.BlogTest do
       assert {:ok, %Post{} = post} = Blog.update_post(post, @update_attrs)
       assert post.body == "some updated body"
       assert post.slug == "some updated slug"
-      assert post.tags == []
+      assert post.tags == ["elixir"]
       assert post.title == "some updated title"
     end
 
     test "update_post/2 with invalid data returns error changeset" do
       post = post_fixture()
       assert {:error, %Ecto.Changeset{}} = Blog.update_post(post, @invalid_attrs)
-      assert post == Blog.get_post!(post.id)
+      assert %{post | tags_input: nil} == Blog.get_post!(post.id)
     end
 
     test "delete_post/1 deletes the post" do

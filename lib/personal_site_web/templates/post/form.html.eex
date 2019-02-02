@@ -13,9 +13,9 @@
   <%= text_input f, :slug %>
   <%= error_tag f, :slug %>
 
-  <%= label f, :tags %>
-  <%= multiple_select f, :tags, ["Option 1": "option1", "Option 2": "option2"] %>
-  <%= error_tag f, :tags %>
+  <%= label f, :tags_input %>
+  <%= text_input f, :tags_input %>
+  <%= error_tag f, :tags_input %>
 
   <%= label f, :body %>
   <input id="post_body" type="hidden" name="post[body]" value="<%= f.data.body %>">

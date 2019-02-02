@@ -1,6 +1,6 @@
 # PersonalSite
 
-[![Build Status](https://semaphoreci.com/api/v1/math3v/personal_site/branches/add-trixjs/badge.svg)](https://semaphoreci.com/math3v/personal_site)
+[![Build Status](https://semaphoreci.com/api/v1/math3v/personal_site/branches/master/badge.svg)](https://semaphoreci.com/math3v/personal_site)
 
 To start your Phoenix server:
 

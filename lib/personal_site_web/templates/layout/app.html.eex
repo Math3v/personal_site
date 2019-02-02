@@ -9,26 +9,39 @@
     <%= render_existing(@view_module, "page_assets." <> @view_template, assigns) %>
   </head>
   <body>
-    <header>
-      <section class="container">
-        <nav role="navigation">
-          <ul>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
-            <li><a href="<%= Routes.page_path(@conn, :about) %>">About</a></li>
-            <li><a href="<%= Routes.post_path(@conn, :index) %>">Blog</a></li>
-            <%= if signed_in?(@conn) do %>
-            <li><a href="<%= Routes.session_path(@conn, :logout) %>">Logout</a></li>
-            <% end %>
-          </ul>
-        </nav>
-        <a href="http://phoenixframework.org/" class="phx-logo">
-          <img src="<%= Routes.static_path(@conn, "/images/phoenix.png") %>" alt="Phoenix Framework Logo"/>
-        </a>
-      </section>
-    </header>
+    <nav class="navbar is-transparent">
+      <div class="navbar-brand"></div>
+
+      <div class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item" href="<%= Routes.page_path(@conn, :index) %>">Home</a>
+          <a class="navbar-item" href="<%= Routes.page_path(@conn, :about) %>">About</a>
+          <a class="navbar-item" href="<%= Routes.post_path(@conn, :index) %>">Blog</a>
+          <%= if signed_in?(@conn) do %>
+          <a class="navbar-item" href="<%= Routes.session_path(@conn, :logout) %>">Logout</a>
+          <% end %>
+        </div>
+      </div>
+    </nav>
     <main role="main" class="container">
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+      <%= if has_flash?(@conn, :info) do %>
+      <article class="message is-primary" role="alert">
+        <div class="message-header">
+          <p>Info</p>
+          <button class="delete" aria-label="delete"></button>
+        </div>
+        <div class="message-body"><%= get_flash(@conn, :info) %></div>
+      </article>
+      <% end %>
+      <%= if has_flash?(@conn, :error) do %>
+      <article class="message is-danger" role="alert">
+        <div class="message-header">
+          <p>Error</p>
+          <button class="delete" aria-label="delete"></button>
+        </div>
+        <div class="message-body"><%= get_flash(@conn, :error) %></div>
+      </article>
+      <% end %>
       <%= render @view_module, @view_template, assigns %>
     </main>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>

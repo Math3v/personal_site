@@ -18,7 +18,7 @@ defmodule PersonalSite.Posts.CreateTest do
     |> fill_in(text_field("Tags input"), with: "elixir, erlang")
     |> fill_in(text_field("Slug"), with: "new-post")
     |> click(button("Save"))
-    |> assert_has(css(".alert-info", text: "Post created successfully."))
+    |> assert_has(css(".message-body", text: "Post created successfully."))
 
     session
     |> visit("/")

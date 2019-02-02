@@ -22,7 +22,10 @@ defmodule PersonalSite.IntegrationCase do
     end
 
     metadata = Phoenix.Ecto.SQL.Sandbox.metadata_for(PersonalSite.Repo, self())
-    {:ok, session} = Wallaby.start_session(metadata: metadata)
+
+    {:ok, session} =
+      Wallaby.start_session(metadata: metadata, window_size: [width: 1920, height: 1080])
+
     {:ok, session: session}
   end
 end

@@ -67,6 +67,6 @@ defmodule PersonalSite.MixProject do
   end
 
   defp compile_assets(_) do
-    Mix.shell().cmd("cd assets/ && npm run deploy")
+    Mix.shell().cmd("cd assets/ && npm run build")
   end
 end

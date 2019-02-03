@@ -10,6 +10,7 @@ import css from "../css/app.css"
 // Import dependencies
 //
 import "phoenix_html"
+import "../node_modules/@vizuaalog/bulmajs/src/plugins/navbar";
 
 // Import local files
 //

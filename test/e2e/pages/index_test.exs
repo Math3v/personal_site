@@ -6,6 +6,6 @@ defmodule PersonalSite.Pages.IndexTest do
   test "loads index page", %{session: session} do
     session
     |> visit("/")
-    |> assert_has(css(".phx-hero", text: "Welcome to Phoenix!"))
+    |> assert_has(css(".title", text: "Welcome to Matej's Site!"))
   end
 end

@@ -1,3 +1,7 @@
 /* This file is for your main application css. */
 
-@import "./phoenix.css";
+@import "../node_modules/bulma/css/bulma.css";
+
+.navbar.is-bold {
+  background-image: linear-gradient(7deg, #009e6c 0%, #00d1b2 71%, #00e7eb 100%)
+}

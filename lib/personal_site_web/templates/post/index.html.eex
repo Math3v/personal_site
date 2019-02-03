@@ -1,32 +1,18 @@
-<h1>Listing Posts</h1>
+<div class="container">
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Tags</th>
-      <th>Slug</th>
+  <%= if PersonalSiteWeb.LayoutView.signed_in?(@conn) do %>
+  <span><%= link "New Post", to: Routes.post_path(@conn, :new) %></span>
+  <% end %>
 
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-<%= for post <- @posts do %>
-    <tr>
-      <td><%= post.title %></td>
-      <td><%= post.body %></td>
-      <td><%= post.tags %></td>
-      <td><%= post.slug %></td>
+  <%= for post <- @posts do %>
+    <h1 class="title is-1">
+      <%= link post.title, to: Routes.post_path(@conn, :show, post) %>
+    </h1>
 
-      <td>
-        <%= link "Show", to: Routes.post_path(@conn, :show, post) %>
-        <%= link "Edit", to: Routes.post_path(@conn, :edit, post) %>
-        <%= link "Delete", to: Routes.post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure?"] %>
-      </td>
-    </tr>
-<% end %>
-  </tbody>
-</table>
+    <%= if PersonalSiteWeb.LayoutView.signed_in?(@conn) do %>
+    <%= link "Edit", to: Routes.post_path(@conn, :edit, post) %>
+    <%= link "Delete", to: Routes.post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure?"] %>
+    <% end %>
 
-<span><%= link "New Post", to: Routes.post_path(@conn, :new) %></span>
+  <% end %>
+</div>

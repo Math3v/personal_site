@@ -23,6 +23,6 @@ defmodule PersonalSite.Posts.CreateTest do
     session
     |> visit("/")
     |> click(link("Blog"))
-    |> assert_has(css("td", text: "New Post"))
+    |> assert_has(css("a", text: "New Post"))
   end
 end

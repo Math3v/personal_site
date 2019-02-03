@@ -27,9 +27,11 @@ defmodule PersonalSiteWeb.PostControllerTest do
   end
 
   describe "index" do
+    setup [:create_post]
+
     test "lists all posts", %{conn: conn} do
       conn = get(conn, Routes.post_path(conn, :index))
-      assert html_response(conn, 200) =~ "Listing Posts"
+      assert html_response(conn, 200) =~ "some title"
     end
   end
 

@@ -9,7 +9,7 @@
     <%= render_existing(@view_module, "page_assets." <> @view_template, assigns) %>
   </head>
   <body>
-    <nav class="navbar is-transparent">
+    <nav class="navbar is-primary is-bold">
       <div class="navbar-brand">
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
           <span aria-hidden="true"></span>

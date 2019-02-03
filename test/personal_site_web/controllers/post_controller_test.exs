@@ -52,7 +52,7 @@ defmodule PersonalSiteWeb.PostControllerTest do
       assert redirected_to(conn) == Routes.post_path(conn, :show, id)
 
       conn = get(conn, Routes.post_path(conn, :show, id))
-      assert html_response(conn, 200) =~ "Show Post"
+      assert html_response(conn, 200) =~ "some title"
     end
 
     test "renders errors when data is invalid", %{conn: conn} do

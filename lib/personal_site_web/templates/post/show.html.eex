@@ -1,28 +1,6 @@
-<h1>Show Post</h1>
-
-<ul>
-
-  <li>
-    <strong>Title:</strong>
-    <%= @post.title %>
-  </li>
-
-  <li>
-    <strong>Body:</strong>
-    <%= raw @post.body %>
-  </li>
-
-  <li>
-    <strong>Tags:</strong>
-    <%= @post.tags %>
-  </li>
-
-  <li>
-    <strong>Slug:</strong>
-    <%= @post.slug %>
-  </li>
-
-</ul>
-
-<span><%= link "Edit", to: Routes.post_path(@conn, :edit, @post) %></span>
-<span><%= link "Back", to: Routes.post_path(@conn, :index) %></span>
+<div class="container">
+  <h1 class="title is-1"><%= @post.title %></h1>
+  <div class="content is-medium">
+  <%= raw @post.body %>
+  </div>
+</div>

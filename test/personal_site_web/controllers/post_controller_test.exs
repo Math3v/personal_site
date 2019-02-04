@@ -5,10 +5,9 @@ defmodule PersonalSiteWeb.PostControllerTest do
 
   alias PersonalSite.Blog
 
-  @create_attrs %{body: "some body", slug: "some slug", tags_input: "react", title: "some title"}
+  @create_attrs %{body: "some body", tags_input: "react", title: "some title"}
   @update_attrs %{
     body: "some updated body",
-    slug: "some updated slug",
     tags_input: "elixir",
     title: "some updated title"
   }
@@ -77,8 +76,9 @@ defmodule PersonalSiteWeb.PostControllerTest do
 
     test "redirects when data is valid", %{conn: conn, post: post} do
       conn = put(conn, Routes.post_path(conn, :update, post), post: @update_attrs)
-      assert redirected_to(conn) == Routes.post_path(conn, :show, post)
+      assert redirected_to(conn) == "/posts/some-updated-title"
 
+      post = Blog.get_post_by_slug!("some-updated-title")
       conn = get(conn, Routes.post_path(conn, :show, post))
       assert html_response(conn, 200) =~ "some updated body"
     end

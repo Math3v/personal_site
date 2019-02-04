@@ -27,18 +27,18 @@ defmodule PersonalSiteWeb.PostController do
   end
 
   def show(conn, %{"id" => id}) do
-    post = Blog.get_post!(id)
+    post = Blog.get_post_by_slug!(id)
     render(conn, "show.html", post: post)
   end
 
   def edit(conn, %{"id" => id}) do
-    post = Blog.get_post!(id)
+    post = Blog.get_post_by_slug!(id)
     changeset = Blog.change_post(post)
     render(conn, "edit.html", post: post, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "post" => post_params}) do
-    post = Blog.get_post!(id)
+    post = Blog.get_post_by_slug!(id)
 
     case Blog.update_post(post, post_params) do
       {:ok, post} ->
@@ -52,7 +52,7 @@ defmodule PersonalSiteWeb.PostController do
   end
 
   def delete(conn, %{"id" => id}) do
-    post = Blog.get_post!(id)
+    post = Blog.get_post_by_slug!(id)
     {:ok, _post} = Blog.delete_post(post)
 
     conn

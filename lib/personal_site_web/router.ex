@@ -21,9 +21,9 @@ defmodule PersonalSiteWeb.Router do
     plug Guardian.Plug.EnsureAuthenticated
   end
 
-  scope "/", PersonalSiteWeb do
+  scope "/auth", PersonalSiteWeb do
     pipe_through [:browser, :auth, :ensure_auth]
-    resources "/posts", PostController, except: [:index, :show]
+    resources "/posts", PostController, name: :auth_post
   end
 
   scope "/", PersonalSiteWeb do
@@ -38,9 +38,4 @@ defmodule PersonalSiteWeb.Router do
 
     resources "/posts", PostController, only: [:index, :show]
   end
-
-  # Other scopes may use custom stacks.
-  # scope "/api", PersonalSiteWeb do
-  #   pipe_through :api
-  # end
 end

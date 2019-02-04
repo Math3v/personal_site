@@ -16,8 +16,7 @@ defmodule PersonalSite.Accounts.Admin do
     admin
     |> cast(attrs, [:username, :password])
     |> validate_required([:username, :password])
-
-    # FIXME: |> put_password_hash()
+    |> put_password_hash()
   end
 
   defp put_password_hash(

@@ -1,6 +1,7 @@
 # PersonalSite
 
 [![Build Status](https://semaphoreci.com/api/v1/math3v/personal_site/branches/master/badge.svg)](https://semaphoreci.com/math3v/personal_site)
+[![Coverage Status](https://coveralls.io/repos/github/Math3v/personal_site/badge.svg?branch=master)](https://coveralls.io/github/Math3v/personal_site?branch=master)
 
 To start your Phoenix server:
 

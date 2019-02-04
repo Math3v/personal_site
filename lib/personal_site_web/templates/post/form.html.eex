@@ -1,29 +1,45 @@
 <%= form_for @changeset, @action, fn f -> %>
   <%= if @changeset.action do %>
-    <div class="alert alert-danger">
-      <p>Oops, something went wrong! Please check the errors below.</p>
-    </div>
+    <p>Oops, something went wrong! Please check the errors below.</p>
   <% end %>
 
-  <%= label f, :title %>
-  <%= text_input f, :title %>
-  <%= error_tag f, :title %>
+  <div class="field">
+    <%= label f, :title, class: "label" %>
+    <div class="control">
+      <%= text_input f, :title, class: "input" %>
+    </div>
+    <p class="help">
+      <%= error_tag f, :title %>
+    </p>
+  </div>
 
-  <%= label f, :slug %>
-  <%= text_input f, :slug %>
-  <%= error_tag f, :slug %>
+  <div class="field">
+    <%= label f, :slug, class: "label" %>
+    <div class="control">
+      <%= text_input f, :slug, class: "input" %>
+    </div>
+    <p class="help">
+      <%= error_tag f, :slug %>
+    </p>
+  </div>
 
-  <%= label f, :tags_input %>
-  <%= text_input f, :tags_input %>
-  <%= error_tag f, :tags_input %>
+  <div class="field">
+    <%= label f, :tags_input, class: "label" %>
+    <div class="control">
+      <%= text_input f, :tags_input, class: "input" %>
+    </div>
+    <p class="help">
+      <%= error_tag f, :tags_input %>
+    </p>
+  </div>
 
-  <%= label f, :body %>
+  <%= label f, :body, class: "label" %>
   <input id="post_body" type="hidden" name="post[body]" value="<%= f.data.body %>">
   <trix-editor input="post_body"></trix-editor>
   <%= error_tag f, :body %>
 
-  <div>
-    <%= submit "Save" %>
+  <div class="control">
+    <%= submit "Save", class: "button is-primary" %>
   </div>
 <% end %>
 

@@ -1,19 +1,29 @@
-<h2>Login Page</h2>
+<div class="container">
+  <h2 class="title is-1">Login Page</h2>
 
-<%= form_for @changeset, @action, fn f -> %>
-  <div class="form-group">
-    <%= label f, :username, class: "control-label" %>
-    <%= text_input f, :username, class: "form-control" %>
-    <%= error_tag f, :username %>
-  </div>
+  <%= form_for @changeset, @action, fn f -> %>
+    <div class="field">
+      <%= label f, :username, class: "label" %>
+      <div class="control">
+        <%= text_input f, :username, class: "input" %>
+      </div>
+      <p class="help">
+        <%= error_tag f, :username %>
+      </p>
+    </div>
 
-  <div class="form-group">
-    <%= label f, :password, class: "control-label" %>
-    <%= text_input f, :password, class: "form-control" %>
-    <%= error_tag f, :password %>
-  </div>
+    <div class="field">
+      <%= label f, :password, class: "label" %>
+      <div class="control">
+        <%= password_input f, :password, class: "input" %>
+      </div>
+      <p class="help">
+        <%= error_tag f, :password %>
+      </p>
+    </div>
 
-  <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary" %>
-  </div>
-<% end %>
+    <div class="control">
+      <%= submit "Submit", class: "button is-primary" %>
+    </div>
+  <% end %>
+</div>

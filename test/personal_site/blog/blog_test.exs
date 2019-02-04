@@ -34,10 +34,15 @@ defmodule PersonalSite.BlogTest do
       assert Blog.get_post!(post.id) == %{post | tags_input: nil}
     end
 
+    test "get_post_by_slug!/1 returns the post with given slug" do
+      post = post_fixture()
+      assert Blog.get_post_by_slug!(post.slug) == %{post | tags_input: nil}
+    end
+
     test "create_post/1 with valid data creates a post" do
       assert {:ok, %Post{} = post} = Blog.create_post(@valid_attrs)
       assert post.body == "some body"
-      assert post.slug == "some slug"
+      assert post.slug == "some-title"
       assert post.tags == ["react"]
       assert post.title == "some title"
     end
@@ -50,7 +55,7 @@ defmodule PersonalSite.BlogTest do
       post = post_fixture()
       assert {:ok, %Post{} = post} = Blog.update_post(post, @update_attrs)
       assert post.body == "some updated body"
-      assert post.slug == "some updated slug"
+      assert post.slug == "some-updated-title"
       assert post.tags == ["elixir"]
       assert post.title == "some updated title"
     end

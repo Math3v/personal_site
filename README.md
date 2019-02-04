@@ -13,18 +13,14 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 ## Tasks
 
-  * Design
+  * Fix Auth
   * Analytics
   * Image Uploads
   * Newsletter
   * Drafts
   * SEO
-  * Sluggerize
-  * Code Formatting
   * Social Media Links
   * Technologies Page
   * Projects Page
 
 ## Nice-To-Haves
-
-  * Automatic Slug Generation

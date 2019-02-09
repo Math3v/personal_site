@@ -38,7 +38,7 @@ defmodule PersonalSiteWeb.PostControllerTest do
     setup [:login_admin]
 
     test "renders form", %{conn: conn} do
-      conn = get(conn, Routes.post_path(conn, :new))
+      conn = get(conn, Routes.auth_post_path(conn, :new))
       assert html_response(conn, 200) =~ "New Post"
     end
   end
@@ -47,17 +47,17 @@ defmodule PersonalSiteWeb.PostControllerTest do
     setup [:login_admin]
 
     test "redirects to show when data is valid", %{conn: conn} do
-      conn = post(conn, Routes.post_path(conn, :create), post: @create_attrs)
+      conn = post(conn, Routes.auth_post_path(conn, :create), post: @create_attrs)
 
       assert %{id: id} = redirected_params(conn)
-      assert redirected_to(conn) == Routes.post_path(conn, :show, id)
+      assert redirected_to(conn) == Routes.auth_post_path(conn, :show, id)
 
       conn = get(conn, Routes.post_path(conn, :show, id))
       assert html_response(conn, 200) =~ "some title"
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
-      conn = post(conn, Routes.post_path(conn, :create), post: @invalid_attrs)
+      conn = post(conn, Routes.auth_post_path(conn, :create), post: @invalid_attrs)
       assert html_response(conn, 200) =~ "New Post"
     end
   end
@@ -66,7 +66,7 @@ defmodule PersonalSiteWeb.PostControllerTest do
     setup [:create_post, :login_admin]
 
     test "renders form for editing chosen post", %{conn: conn, post: post} do
-      conn = get(conn, Routes.post_path(conn, :edit, post))
+      conn = get(conn, Routes.auth_post_path(conn, :edit, post))
       assert html_response(conn, 200) =~ "Edit Post"
     end
   end
@@ -75,8 +75,8 @@ defmodule PersonalSiteWeb.PostControllerTest do
     setup [:create_post, :login_admin]
 
     test "redirects when data is valid", %{conn: conn, post: post} do
-      conn = put(conn, Routes.post_path(conn, :update, post), post: @update_attrs)
-      assert redirected_to(conn) == "/posts/some-updated-title"
+      conn = put(conn, Routes.auth_post_path(conn, :update, post), post: @update_attrs)
+      assert redirected_to(conn) == "/auth/posts/some-updated-title"
 
       post = Blog.get_post_by_slug!("some-updated-title")
       conn = get(conn, Routes.post_path(conn, :show, post))
@@ -84,7 +84,7 @@ defmodule PersonalSiteWeb.PostControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, post: post} do
-      conn = put(conn, Routes.post_path(conn, :update, post), post: @invalid_attrs)
+      conn = put(conn, Routes.auth_post_path(conn, :update, post), post: @invalid_attrs)
       assert html_response(conn, 200) =~ "Edit Post"
     end
   end
@@ -93,8 +93,8 @@ defmodule PersonalSiteWeb.PostControllerTest do
     setup [:create_post, :login_admin]
 
     test "deletes chosen post", %{conn: conn, post: post} do
-      conn = delete(conn, Routes.post_path(conn, :delete, post))
-      assert redirected_to(conn) == Routes.post_path(conn, :index)
+      conn = delete(conn, Routes.auth_post_path(conn, :delete, post))
+      assert redirected_to(conn) == Routes.auth_post_path(conn, :index)
 
       assert_error_sent 404, fn ->
         get(conn, Routes.post_path(conn, :show, post))

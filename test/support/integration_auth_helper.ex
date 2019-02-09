@@ -1,10 +1,16 @@
 defmodule PersonalSiteWeb.IntegrationAuthHelper do
+  alias PersonalSite.Accounts
+
   import PersonalSite.Factory
   import Wallaby.Browser
   import Wallaby.Query, only: [text_field: 1, button: 1]
 
   def login_admin(session) do
-    insert(:admin)
+    admin_count = Accounts.list_admins() |> Enum.count()
+
+    if admin_count == 0 do
+      insert(:admin)
+    end
 
     session
     |> visit("/login")

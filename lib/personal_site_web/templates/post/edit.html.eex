@@ -1,9 +1,9 @@
 <div class="container">
   <h1 class="title is-1">Edit Post</h1>
 
-  <%= render "form.html", Map.put(assigns, :action, Routes.post_path(@conn, :update, @post)) %>
+  <%= render "form.html", Map.put(assigns, :action, Routes.auth_post_path(@conn, :update, @post)) %>
 
   <span>
-    <%= link "Back", to: Routes.post_path(@conn, :index) %>
+    <%= link "Back", to: Routes.auth_post_path(@conn, :index) %>
   </span>
 </div>

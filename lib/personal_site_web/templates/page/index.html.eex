@@ -20,7 +20,7 @@
               Frontend
             </p>
             <p class="subtitle">
-              Jeff Atwood
+              I always enjoyed writing HTML, CSS and Javascript. It's very satisfactory that you can see the site changing and forming instantly as you type. My first production-ready lines of Javascript were written in Angular.js and ES5. Then, I've tried Angular, React, Ember.js and Vue.js. Most of my frontend code was written in React/Redux ecosystem, using modern HTML and CSS features.
             </p>
           </div>
         </div>
@@ -32,7 +32,7 @@
               Backend
             </p>
             <p class="subtitle">
-              Jeff Atwood
+              A majority of my backend-related work was done in Ruby on Rails framework. I soon realized, that although it's a great framework, developers usually don't write only blogs in 20 minutes. The biggest issues are usually around callbacks, fat models or controllers, and god objects. That's a good reason to use POROs, Callables and Trailblazer. Besides Ruby, I enjoy using Node.js and Elixir.
             </p>
           </div>
         </div>
@@ -44,7 +44,7 @@
               Experience
             </p>
             <p class="subtitle">
-              Jeff Atwood
+              I always try to think about experience at work. While the quality of a product or service is essential, great experience makes it even more valuable. Not only is it vital to have a great experience as an end user, but also as a customer. That's why I try to deliver the best work every day and strive for transparency, good manners and fairness.
             </p>
           </div>
         </div>

@@ -6,13 +6,13 @@ defmodule PersonalSite.Pages.AboutTest do
   test "loads about page", %{session: session} do
     session
     |> visit("/about")
-    |> assert_has(css(".phx-hero", text: "About Me"))
+    |> assert_has(css(".title.is-1", text: "About Me"))
   end
 
   test "index page links to about page", %{session: session} do
     session
     |> visit("/")
     |> click(link("About"))
-    |> assert_has(css(".phx-hero", text: "About Me"))
+    |> assert_has(css(".title.is-1", text: "About Me"))
   end
 end

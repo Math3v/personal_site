@@ -1,14 +1,19 @@
-<section class="phx-hero">
-  <h1>About Me</h1>
+<section class="section">
+  <div class="container is-fluid">
+    <h1 class="title is-1">About Me</h1>
+    <div class="content is-medium">
+      <p>
+        I'm a fullstack developer, currently working from Brno, Czech Republic. If I'm not working, I love to spend time with my fiancé, walking, running, cycling, swimming, roller-blading, skiing or body building. Every one of these reduces stress and helps me cope with everyday situations.
+      </p>
+    </div>
+    <div class="columns">
+      <div class="column is-full">
+        <img src="<%= Routes.static_path(@conn, "/images/cloud.png") %>" alt="WordCloud"/>
+      </div>
+    </div>
+  </div>
 </section>
-<section>
-  <img src="<%= Routes.static_path(@conn, "/images/wordcloud.svg") %>" alt="WordCloud"/>
-</section>
-<section>
-  <p>
-    This is a paragraph about me.
-  </p>
-</section>
+
 
 <%# 
 Generated with: https://www.jasondavies.com/wordcloud/

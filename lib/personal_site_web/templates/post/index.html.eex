@@ -1,18 +1,20 @@
-<div class="container">
-
-  <%= if PersonalSiteWeb.LayoutView.signed_in?(@conn) do %>
-  <span><%= link "New Post", to: Routes.auth_post_path(@conn, :new) %></span>
-  <% end %>
-
-  <%= for post <- @posts do %>
-    <h1 class="title is-1">
-      <%= link post.title, to: Routes.post_path(@conn, :show, post) %>
-    </h1>
+<section class="section">
+  <div class="container">
 
     <%= if PersonalSiteWeb.LayoutView.signed_in?(@conn) do %>
-    <%= link "Edit", to: Routes.auth_post_path(@conn, :edit, post) %>
-    <%= link "Delete", to: Routes.auth_post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure?"] %>
+    <span><%= link "New Post", to: Routes.auth_post_path(@conn, :new) %></span>
     <% end %>
 
-  <% end %>
-</div>
+    <%= for post <- @posts do %>
+      <h1 class="title is-1">
+        <%= link post.title, to: Routes.post_path(@conn, :show, post) %>
+      </h1>
+
+      <%= if PersonalSiteWeb.LayoutView.signed_in?(@conn) do %>
+      <%= link "Edit", to: Routes.auth_post_path(@conn, :edit, post) %>
+      <%= link "Delete", to: Routes.auth_post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure?"] %>
+      <% end %>
+
+    <% end %>
+  </div>
+</section>

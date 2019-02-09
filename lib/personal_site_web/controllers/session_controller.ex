@@ -30,7 +30,7 @@ defmodule PersonalSiteWeb.SessionController do
     conn
     |> put_flash(:success, "Welcome back!")
     |> Guardian.Plug.sign_in(admin)
-    |> redirect(to: "/posts")
+    |> redirect(to: "/auth/posts")
   end
 
   defp login_reply({:error, reason}, conn) do

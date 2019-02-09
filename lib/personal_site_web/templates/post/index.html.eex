@@ -1,7 +1,7 @@
 <div class="container">
 
   <%= if PersonalSiteWeb.LayoutView.signed_in?(@conn) do %>
-  <span><%= link "New Post", to: Routes.post_path(@conn, :new) %></span>
+  <span><%= link "New Post", to: Routes.auth_post_path(@conn, :new) %></span>
   <% end %>
 
   <%= for post <- @posts do %>
@@ -10,8 +10,8 @@
     </h1>
 
     <%= if PersonalSiteWeb.LayoutView.signed_in?(@conn) do %>
-    <%= link "Edit", to: Routes.post_path(@conn, :edit, post) %>
-    <%= link "Delete", to: Routes.post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure?"] %>
+    <%= link "Edit", to: Routes.auth_post_path(@conn, :edit, post) %>
+    <%= link "Delete", to: Routes.auth_post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure?"] %>
     <% end %>
 
   <% end %>

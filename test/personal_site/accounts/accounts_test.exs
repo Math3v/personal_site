@@ -31,7 +31,8 @@ defmodule PersonalSite.AccountsTest do
 
     test "create_admin/1 with valid data creates a admin" do
       assert {:ok, %Admin{} = admin} = Accounts.create_admin(@valid_attrs)
-      assert admin.password == "some password"
+      assert String.starts_with?(admin.password, "$2b$04$")
+      assert String.length(admin.password) == 60
       assert admin.username == "some username"
     end
 
@@ -42,7 +43,8 @@ defmodule PersonalSite.AccountsTest do
     test "update_admin/2 with valid data updates the admin" do
       admin = admin_fixture()
       assert {:ok, %Admin{} = admin} = Accounts.update_admin(admin, @update_attrs)
-      assert admin.password == "some updated password"
+      assert String.starts_with?(admin.password, "$2b$04$")
+      assert String.length(admin.password) == 60
       assert admin.username == "some updated username"
     end
 

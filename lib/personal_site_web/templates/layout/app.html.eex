@@ -22,7 +22,11 @@
         <div class="navbar-end">
           <a class="navbar-item" href="<%= Routes.page_path(@conn, :index) %>">Home</a>
           <a class="navbar-item" href="<%= Routes.page_path(@conn, :about) %>">About</a>
+          <%= if signed_in?(@conn) do %>
+          <a class="navbar-item" href="<%= Routes.auth_post_path(@conn, :index) %>">Blog</a>
+          <% else %>
           <a class="navbar-item" href="<%= Routes.post_path(@conn, :index) %>">Blog</a>
+          <% end %>
           <%= if signed_in?(@conn) do %>
           <a class="navbar-item" href="<%= Routes.session_path(@conn, :logout) %>">Logout</a>
           <% end %>

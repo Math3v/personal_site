@@ -21,6 +21,14 @@ defmodule PersonalSite.Blog do
     Repo.all(Post)
   end
 
+  def list_published_posts do
+    query =
+      from p in Post,
+        where: not is_nil(p.published_at)
+
+    Repo.all(query)
+  end
+
   @doc """
   Gets a single post.
 

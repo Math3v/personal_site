@@ -5,7 +5,7 @@ defmodule PersonalSiteWeb.PostControllerTest do
 
   alias PersonalSite.Blog
 
-  @create_attrs %{body: "some body", tags_input: "react", title: "some title"}
+  @create_attrs %{body: "some body", tags_input: "react", title: "some title", published_at: nil}
   @update_attrs %{
     body: "some updated body",
     tags_input: "elixir",
@@ -13,8 +13,8 @@ defmodule PersonalSiteWeb.PostControllerTest do
   }
   @invalid_attrs %{body: nil, slug: nil, tags_input: nil, title: nil}
 
-  def fixture(:post) do
-    {:ok, post} = Blog.create_post(@create_attrs)
+  def fixture(:post, attrs \\ @create_attrs) do
+    {:ok, post} = Blog.create_post(attrs)
     post
   end
 
@@ -26,9 +26,9 @@ defmodule PersonalSiteWeb.PostControllerTest do
   end
 
   describe "index" do
-    setup [:create_post]
-
     test "lists all posts", %{conn: conn} do
+      {:ok, published_at} = DateTime.now("Etc/UTC")
+      fixture(:post, %{@create_attrs | published_at: published_at})
       conn = get(conn, Routes.post_path(conn, :index))
       assert html_response(conn, 200) =~ "some title"
     end

@@ -18,4 +18,12 @@ defmodule PersonalSite.Posts.CreateTest do
     |> visit("/posts/new-post")
     |> assert_has(css("h1", text: "New Post"))
   end
+
+  test "creates draft and publishes it", %{session: session} do
+    session
+    |> login_admin()
+    |> create_post()
+    |> visit("/posts")
+    |> assert_has(css(".title.is-1", count: 0))
+  end
 end

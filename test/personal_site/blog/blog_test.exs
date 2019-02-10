@@ -76,5 +76,13 @@ defmodule PersonalSite.BlogTest do
       post = post_fixture()
       assert %Ecto.Changeset{} = Blog.change_post(post)
     end
+
+    test "list_published_posts/0 returns published" do
+      {:ok, published_at} = DateTime.now("Etc/UTC")
+      published_post = post_fixture(%{published_at: published_at})
+      post_fixture(%{title: "Title 2"})
+
+      assert Blog.list_published_posts() == [%{published_post | tags_input: nil}]
+    end
   end
 end

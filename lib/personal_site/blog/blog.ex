@@ -30,8 +30,9 @@ defmodule PersonalSite.Blog do
   end
 
   def publish_post_by_slug(slug) do
-    {:ok, utc_now} = DateTime.now("Etc/UTC")
-    utc_now = DateTime.truncate(utc_now, :second)
+    utc_now =
+      DateTime.utc_now()
+      |> DateTime.truncate(:second)
 
     slug
     |> get_post_by_slug!()

@@ -27,8 +27,8 @@ defmodule PersonalSiteWeb.PostControllerTest do
 
   describe "index" do
     test "lists all posts", %{conn: conn} do
-      {:ok, published_at} = DateTime.now("Etc/UTC")
-      fixture(:post, %{@create_attrs | published_at: published_at})
+      utc_now = DateTime.utc_now()
+      fixture(:post, %{@create_attrs | published_at: utc_now})
       conn = get(conn, Routes.post_path(conn, :index))
       assert html_response(conn, 200) =~ "some title"
     end

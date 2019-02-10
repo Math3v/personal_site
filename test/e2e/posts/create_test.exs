@@ -24,12 +24,12 @@ defmodule PersonalSite.Posts.CreateTest do
     |> login_admin()
     |> create_post()
     |> visit("/posts")
-    |> assert_has(css(".title.is-1", count: 0))
+    |> assert_has(css(".title.is-2", count: 0))
 
     session
     |> visit("/auth/posts")
     |> click(link("Publish"))
     |> visit("/posts")
-    |> assert_has(css(".title.is-1", count: 1))
+    |> assert_has(css(".title.is-2", count: 1))
   end
 end

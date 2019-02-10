@@ -78,8 +78,8 @@ defmodule PersonalSite.BlogTest do
     end
 
     test "list_published_posts/0 returns published" do
-      {:ok, published_at} = DateTime.now("Etc/UTC")
-      published_post = post_fixture(%{published_at: published_at})
+      utc_now = DateTime.utc_now()
+      published_post = post_fixture(%{published_at: utc_now})
       post_fixture(%{title: "Title 2"})
 
       assert Blog.list_published_posts() == [%{published_post | tags_input: nil}]

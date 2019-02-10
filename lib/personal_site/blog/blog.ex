@@ -34,13 +34,9 @@ defmodule PersonalSite.Blog do
       DateTime.utc_now()
       |> DateTime.truncate(:second)
 
-    IO.puts("UTC Now")
-    IO.inspect(utc_now)
-
     slug
     |> get_post_by_slug!()
     |> Ecto.Changeset.change(published_at: utc_now)
-    |> IO.inspect()
     |> Repo.update()
   end
 

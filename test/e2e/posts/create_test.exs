@@ -29,6 +29,7 @@ defmodule PersonalSite.Posts.CreateTest do
     session
     |> visit("/auth/posts")
     |> click(link("Publish"))
+    |> assert_has(css(".message-body", text: "Post published successfully."))
     |> visit("/posts")
     |> assert_has(css(".title.is-2", count: 1))
   end

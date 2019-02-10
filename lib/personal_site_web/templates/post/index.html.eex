@@ -12,6 +12,7 @@
 
       <%= if PersonalSiteWeb.LayoutView.signed_in?(@conn) do %>
       <%= link "Edit", to: Routes.auth_post_path(@conn, :edit, post) %>
+      <%= link "Publish", to: Routes.auth_post_path(@conn, :publish, post), method: :patch %>
       <%= link "Delete", to: Routes.auth_post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure?"] %>
       <% end %>
 

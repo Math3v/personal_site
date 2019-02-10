@@ -29,6 +29,16 @@ defmodule PersonalSite.Blog do
     Repo.all(query)
   end
 
+  def publish_post_by_slug(slug) do
+    {:ok, utc_now} = DateTime.now("Etc/UTC")
+    utc_now = DateTime.truncate(utc_now, :second)
+
+    slug
+    |> get_post_by_slug!()
+    |> Ecto.Changeset.change(published_at: utc_now)
+    |> Repo.update()
+  end
+
   @doc """
   Gets a single post.
 

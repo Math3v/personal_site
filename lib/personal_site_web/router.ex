@@ -24,6 +24,7 @@ defmodule PersonalSiteWeb.Router do
   scope "/auth", PersonalSiteWeb do
     pipe_through [:browser, :auth, :ensure_auth]
     resources "/posts", PostController, name: :auth_post
+    patch "/posts/:id/publish", PostController, :publish, as: :auth_post
   end
 
   scope "/", PersonalSiteWeb do

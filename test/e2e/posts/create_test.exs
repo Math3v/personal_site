@@ -25,5 +25,11 @@ defmodule PersonalSite.Posts.CreateTest do
     |> create_post()
     |> visit("/posts")
     |> assert_has(css(".title.is-1", count: 0))
+
+    session
+    |> visit("/auth/posts")
+    |> click(link("Publish"))
+    |> visit("/posts")
+    |> assert_has(css(".title.is-1", count: 1))
   end
 end

@@ -1,6 +1,8 @@
-<div class="container">
-  <h1 class="title is-1"><%= @post.title %></h1>
-  <div class="content is-medium">
-  <%= raw @post.body %>
+<section class="section">
+  <div class="container">
+    <h1 class="title is-1"><%= @post.title %></h1>
+    <div class="content is-medium">
+    <%= raw @post.body %>
+    </div>
   </div>
-</div>
+</section>

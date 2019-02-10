@@ -3,7 +3,7 @@ defmodule PersonalSite.Repo.Migrations.AddPublishedAtToPosts do
 
   def change do
     alter table("posts") do
-      add :published_at, :utc_datetime
+      add :published_at, :timestamptz
     end
 
     create index("posts", [:published_at])

@@ -5,6 +5,8 @@ defmodule PersonalSite.Posts.CreateTest do
   import PersonalSiteWeb.IntegrationAuthHelper, only: [login_admin: 1]
   import PersonalSiteWeb.IntegrationPostHelper, only: [create_post: 1]
 
+  alias PersonalSite.Blog
+
   test "creates post and navigates to index", %{session: session} do
     session
     |> login_admin()
@@ -30,6 +32,11 @@ defmodule PersonalSite.Posts.CreateTest do
     |> visit("/auth/posts")
     |> click(link("Publish"))
     |> visit("/posts")
+
+    Blog.list_posts()
+    |> IO.inspect()
+
+    session
     |> assert_has(css(".title.is-2", count: 1))
   end
 end

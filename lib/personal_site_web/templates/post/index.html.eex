@@ -6,12 +6,20 @@
     <% end %>
 
     <%= for post <- @posts do %>
-      <h1 class="title is-1">
+      <h1 class="title is-2">
         <%= link post.title, to: Routes.post_path(@conn, :show, post) %>
       </h1>
+      <div class="tags are-medium">
+        <%= for tag <- post.tags do %>
+        <span class="tag"><%= tag %></span>
+        <% end %>
+      </div>
 
       <%= if PersonalSiteWeb.LayoutView.signed_in?(@conn) do %>
       <%= link "Edit", to: Routes.auth_post_path(@conn, :edit, post) %>
+      <%= if post_disabled?(post) do %>
+      <%= link "Publish", to: Routes.auth_post_path(@conn, :publish, post), method: :patch %>
+      <% end %>
       <%= link "Delete", to: Routes.auth_post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure?"] %>
       <% end %>
 

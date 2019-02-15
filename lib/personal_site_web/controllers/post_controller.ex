@@ -5,8 +5,14 @@ defmodule PersonalSiteWeb.PostController do
   alias PersonalSite.Blog.Post
 
   def index(conn, _params) do
-    posts = Blog.list_posts()
-    render(conn, "index.html", posts: posts)
+    with nil <- Guardian.Plug.current_resource(conn) do
+      posts = Blog.list_published_posts()
+      render(conn, "index.html", posts: posts)
+    else
+      _ ->
+        posts = Blog.list_posts()
+        render(conn, "index.html", posts: posts)
+    end
   end
 
   def new(conn, _params) do
@@ -57,6 +63,14 @@ defmodule PersonalSiteWeb.PostController do
 
     conn
     |> put_flash(:info, "Post deleted successfully.")
+    |> redirect(to: Routes.auth_post_path(conn, :index))
+  end
+
+  def publish(conn, %{"id" => id}) do
+    {:ok, _post} = Blog.publish_post_by_slug(id)
+
+    conn
+    |> put_flash(:info, "Post published successfully.")
     |> redirect(to: Routes.auth_post_path(conn, :index))
   end
 end

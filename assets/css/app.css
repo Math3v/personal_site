@@ -5,3 +5,7 @@
 .navbar.is-bold {
   background-image: linear-gradient(7deg, #009e6c 0%, #00d1b2 71%, #00e7eb 100%)
 }
+
+.trix-editor {
+  min-height: 35em;
+}

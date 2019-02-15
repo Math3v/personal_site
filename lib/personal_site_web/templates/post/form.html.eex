@@ -35,7 +35,7 @@
 
   <%= label f, :body, class: "label" %>
   <input id="post_body" type="hidden" name="post[body]" value="<%= f.data.body %>">
-  <trix-editor input="post_body"></trix-editor>
+  <trix-editor class="trix-editor" input="post_body"></trix-editor>
   <%= error_tag f, :body %>
 
   <div class="control">

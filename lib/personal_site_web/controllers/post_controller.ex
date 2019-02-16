@@ -34,7 +34,9 @@ defmodule PersonalSiteWeb.PostController do
 
   def show(conn, %{"id" => id}) do
     post = Blog.get_post_by_slug!(id)
-    render(conn, "show.html", post: post)
+    conn
+    |> assign(:title, post.title)
+    |> render("show.html", post: post)
   end
 
   def edit(conn, %{"id" => id}) do

@@ -35,10 +35,10 @@
           <%= if signed_in?(@conn) do %>
           <a class="navbar-item" href="<%= Routes.session_path(@conn, :logout) %>">Logout</a>
           <% end %>
-          <a class="navbar-item" href="https://github.com/Math3v" target="_blank rel="nofollow">
+          <a class="navbar-item" href="https://github.com/Math3v" target="_blank" rel="noopener nofollow">
             <img src="<%= Routes.static_path(@conn, "/icons/github.svg") %>" alt="Github Icon"/>
           </a>
-          <a class="navbar-item" href="https://www.linkedin.com/in/matej-min%C3%A1rik-b1439271" target="_blank" rel="nofollow">
+          <a class="navbar-item" href="https://www.linkedin.com/in/matej-min%C3%A1rik-b1439271" target="_blank" rel="noopener nofollow">
             <img src="<%= Routes.static_path(@conn, "/icons/linkedin.svg") %>" alt="LinkedIn Icon"/>
           </a>
         </div>

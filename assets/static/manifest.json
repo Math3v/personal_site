@@ -1,0 +1,15 @@
+{
+  "short_name": "Matej Blog",
+  "name": "Matej Blog",
+  "icons": [
+    {
+      "src": "/icons/pwa-icon.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#6478c8",
+  "display": "standalone",
+  "theme_color": "#6478c8"
+}

@@ -12,7 +12,9 @@ defmodule PersonalSite.Posts.ShowTest do
       |> visit("/posts/new-post")
 
     title = post_page |> page_title()
+    source = post_page |> page_source()
 
     assert title == "New Post"
+    assert source =~ "SEO Description"
   end
 end

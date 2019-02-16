@@ -37,6 +37,7 @@ defmodule PersonalSiteWeb.PostController do
 
     conn
     |> assign(:title, post.title)
+    |> assign(:description, post.seo_description)
     |> render("show.html", post: post)
   end
 

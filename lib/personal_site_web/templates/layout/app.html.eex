@@ -8,6 +8,7 @@
     <meta name="robots" content="index,follow"/>
     <title><%= get_title(assigns) %></title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+    <link href="https://www.google-analytics.com" rel="preconnect" crossorigin>
     <%= render_existing(@view_module, "page_assets." <> @view_template, assigns) %>
   </head>
   <body>
@@ -32,6 +33,12 @@
           <%= if signed_in?(@conn) do %>
           <a class="navbar-item" href="<%= Routes.session_path(@conn, :logout) %>">Logout</a>
           <% end %>
+          <a class="navbar-item" href="https://github.com/Math3v" target="_blank rel="nofollow">
+            <img src="<%= Routes.static_path(@conn, "/icons/github.svg") %>" alt="Github Icon"/>
+          </a>
+          <a class="navbar-item" href="https://www.linkedin.com/in/matej-min%C3%A1rik-b1439271" target="_blank" rel="nofollow">
+            <img src="<%= Routes.static_path(@conn, "/icons/linkedin.svg") %>" alt="LinkedIn Icon"/>
+          </a>
         </div>
       </div>
     </nav>

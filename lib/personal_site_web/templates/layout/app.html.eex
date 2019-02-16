@@ -9,7 +9,7 @@
     <title><%= get_title(assigns) %></title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
     <link href="https://www.google-analytics.com" rel="preconnect" crossorigin>
-    <link rel="manifest" href="<%= Routes.static_path(@conn, "/manifest.json") %>">
+    <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#6478c8"/>
     <%= render_existing(@view_module, "page_assets." <> @view_template, assigns) %>
   </head>

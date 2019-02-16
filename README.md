@@ -15,7 +15,6 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 ## Tasks
 
   * Image Uploads
-  * SEO
   * Analytics
   * Newsletter
   * Social Media Links

@@ -9,6 +9,15 @@ defmodule PersonalSiteWeb.LayoutView do
     |> is_binary()
   end
 
+  def get_title(%{title: title}), do: title
+  def get_title(_), do: "Matej Minarik Personal Site & Blog"
+
+  def get_description(%{description: desc}), do: desc
+
+  def get_description(_),
+    do:
+      "I'm a fullstack developer, working for PrimeHammer, Brno. I write articles about Ruby on Rails, Elixir, Phoenix and Javascript."
+
   defp is_signed_in?(nil), do: false
   defp is_signed_in?(_), do: true
 end

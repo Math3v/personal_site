@@ -6,12 +6,19 @@ defmodule PersonalSite.BlogTest do
   describe "posts" do
     alias PersonalSite.Blog.Post
 
-    @valid_attrs %{body: "some body", slug: "some slug", tags_input: "react", title: "some title"}
+    @valid_attrs %{
+      body: "some body",
+      slug: "some slug",
+      tags_input: "react",
+      title: "some title",
+      seo_description: "seo description"
+    }
     @update_attrs %{
       body: "some updated body",
       slug: "some updated slug",
       tags_input: "elixir",
-      title: "some updated title"
+      title: "some updated title",
+      seo_description: "updated seo description"
     }
     @invalid_attrs %{body: nil, slug: nil, tags_input: nil, title: nil}
 

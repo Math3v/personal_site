@@ -10,6 +10,7 @@ defmodule PersonalSite.Blog.Post do
     field(:tags_input, :string, virtual: true)
     field :title, :string
     field :published_at, :utc_datetime
+    field :seo_description, :string
 
     timestamps()
   end
@@ -17,8 +18,8 @@ defmodule PersonalSite.Blog.Post do
   @doc false
   def changeset(post, attrs) do
     post
-    |> cast(attrs, [:title, :body, :tags_input, :published_at])
-    |> validate_required([:title, :body, :tags_input])
+    |> cast(attrs, [:title, :body, :tags_input, :published_at, :seo_description])
+    |> validate_required([:title, :body, :tags_input, :seo_description])
     |> tags_input_to_tags_array()
     |> title_to_slug()
   end

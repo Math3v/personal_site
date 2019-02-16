@@ -5,11 +5,18 @@ defmodule PersonalSiteWeb.PostControllerTest do
 
   alias PersonalSite.Blog
 
-  @create_attrs %{body: "some body", tags_input: "react", title: "some title", published_at: nil}
+  @create_attrs %{
+    body: "some body",
+    tags_input: "react",
+    title: "some title",
+    published_at: nil,
+    seo_description: "seo description"
+  }
   @update_attrs %{
     body: "some updated body",
     tags_input: "elixir",
-    title: "some updated title"
+    title: "some updated title",
+    seo_description: "updated seo description"
   }
   @invalid_attrs %{body: nil, slug: nil, tags_input: nil, title: nil}
 

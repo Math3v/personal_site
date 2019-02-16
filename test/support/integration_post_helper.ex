@@ -11,6 +11,7 @@ defmodule PersonalSiteWeb.IntegrationPostHelper do
     |> fill_in(text_field("Title"), with: "New Post")
     |> execute_script("document.getElementById('post_body').value = 'New Content';")
     |> fill_in(text_field("Tags input"), with: "elixir, erlang")
+    |> fill_in(text_field("Seo description"), with: "SEO Description")
     |> click(button("Save"))
     |> assert_has(css(".message-body", text: "Post created successfully."))
   end

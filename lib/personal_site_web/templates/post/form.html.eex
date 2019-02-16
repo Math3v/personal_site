@@ -33,6 +33,16 @@
     </p>
   </div>
 
+  <div class="field">
+    <%= label f, :seo_description, class: "label" %>
+    <div class="control">
+    <%= text_input f, :seo_description, class: "input" %>
+    </div>
+    <p class="help">
+      <%= error_tag f, :seo_description %>
+    </p>
+  </div>
+
   <%= label f, :body, class: "label" %>
   <input id="post_body" type="hidden" name="post[body]" value="<%= f.data.body %>">
   <trix-editor class="trix-editor" input="post_body"></trix-editor>

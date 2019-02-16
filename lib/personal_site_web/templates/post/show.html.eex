@@ -1,6 +1,7 @@
 <section class="section">
   <div class="container">
     <h1 class="title is-1"><%= @post.title %></h1>
+    <h2 class="subtitle is-6">Pubhlished <%= format_datetime(@post.published_at) %></h2>
     <div class="content is-medium">
     <%= raw @post.body %>
     </div>

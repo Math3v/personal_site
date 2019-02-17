@@ -26,7 +26,7 @@
   <div class="field">
     <%= label f, :tags_input, class: "label" %>
     <div class="control">
-      <%= text_input f, :tags_input, class: "input" %>
+      <%= text_input f, :tags_input, class: "input", value: Enum.join(@changeset.data.tags || [], ", ") %>
     </div>
     <p class="help">
       <%= error_tag f, :tags_input %>

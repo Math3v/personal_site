@@ -28,7 +28,7 @@ defmodule PersonalSite.MixProject do
   def application do
     [
       mod: {PersonalSite.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:sentry, :logger, :runtime_tools]
     ]
   end
 
@@ -56,7 +56,8 @@ defmodule PersonalSite.MixProject do
       {:comeonin, "~> 4.0"},
       {:bcrypt_elixir, "~> 0.12"},
       {:ex_machina, "~> 2.2", only: :test},
-      {:excoveralls, "~> 0.10", only: :test}
+      {:excoveralls, "~> 0.10", only: :test},
+      {:sentry, "~> 6.4"}
     ]
   end
 

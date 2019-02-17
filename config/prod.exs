@@ -22,6 +22,17 @@ config :personal_site, PersonalSite.Repo,
   # Needed for Render
   ssl: false
 
+# Configure Sentry Error Monitoring
+config :sentry,
+  dsn: "https://eba404a9013d4ceaa41ada7a31ce5846@sentry.io/1395916",
+  environment_name: :prod,
+  enable_source_code_context: true,
+  root_source_code_path: File.cwd!(),
+  tags: %{
+    env: "production"
+  },
+  included_environments: [:prod]
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key

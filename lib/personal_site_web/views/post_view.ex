@@ -7,8 +7,8 @@ defmodule PersonalSiteWeb.PostView do
     "#{make_two_digit(day)}. #{make_two_digit(month)}. #{year}"
   end
 
-  defp make_two_digit(day) when day < 10, do: "0#{day}"
-  defp make_two_digit(day), do: "#{day}"
+  defp make_two_digit(number) when number < 10, do: "0#{number}"
+  defp make_two_digit(number), do: "#{number}"
 
   defp is_post_disabled?(published_at) when is_nil(published_at), do: true
   defp is_post_disabled?(_), do: false
